@@ -1,0 +1,38 @@
+header{
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+    padding: 2rem 0rem 0rem 0rem;
+}
+h2{
+    padding: 1rem;
+}
+
+.logout{
+    display: inline;
+    float: right;
+    margin-top: -7px;
+}
+
+nav{
+    background-color: rgba(255, 255, 0, 0.493);
+    width: 100%;
+    display: flex;
+    padding: 10px 50px;
+}
+nav a{
+    margin: 10px;
+    color: white;
+    font-weight: bold;
+    padding: 5px 30px;
+    border: solid 0.3px rgba(255, 255, 255, 0);
+}
+
+nav a:hover{
+    margin: 10px;
+    color: rgba(128, 0, 128, 0.493);
+    border: solid 0.3px rgb(241, 222, 255);
+    background-color: rgba(255, 238, 184, 0.39);
+    padding: 5px 30px;
+    text-decoration: none;
+}

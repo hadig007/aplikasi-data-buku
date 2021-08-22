@@ -1,0 +1,20 @@
+
+html{
+    height: 100%;
+    background-color: rgb(207, 207, 207);
+}
+.login{
+    background-color: rgb(26, 146, 134);
+    padding: 20px;
+    border-radius: 0.5rem;
+    box-shadow: 5px 15px 15px 15px rgba(0, 0, 0, 1px);
+    color: white;
+}
+
+.box{
+    top: 40%;
+    position: absolute;
+    right: 30%;
+    left: 30%;
+    box-shadow: 5px 15px 15px 15px rgba(0, 0, 0, 1px);
+}
