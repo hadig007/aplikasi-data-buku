@@ -13,6 +13,10 @@ h2{
     float: right;
     margin-top: -7px;
 }
+.akun{
+    float: right;
+    margin: 10px 0 0 0;
+}
 
 nav{
     background-color: rgba(255, 255, 0, 0.493);

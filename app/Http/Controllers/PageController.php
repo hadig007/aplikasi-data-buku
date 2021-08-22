@@ -53,4 +53,19 @@ class PageController extends Controller
         $user = User::all();
         return view('admin.users',compact('user','nomor'));
     }
+
+    public function account()
+    {
+        $user = User::all();
+        return view('account',compact('user'));
+    }
+
+    public function editaccount(Request $request)
+    {
+        $user = auth()->user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->update();
+        return redirect('/account');
+    }
 }

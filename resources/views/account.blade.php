@@ -13,7 +13,7 @@
     <header>
         <h2>APLIKASI LATIHAN : DATA BUKU</h2>
         <nav>
-            <a href="/home">Home</a>
+            <a href="{{ route('home') }}">Home</a>
             @if(auth()->user()->level == "admin")
             <a href="{{ route('users') }}">Users</a>
             @endif
@@ -26,34 +26,25 @@
     
 
     <main>
-        <div class="container">
-            <a href="{{ route('account') }}" class="akun btn btn-info">{{ auth()->user()->name }} 
-                <span><i class="fas fa-user-circle"></i></span>
-            </a>
-            <h2>Data Buku</h2>
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>NO</th>
-                        <th>ID Buku</th>
-                        <th>Nama Peminjam</th>
-                        <th>Judul Buku</th>
-                        <th>Jumlah Buku</th>
-                        <th>Peminjam Buku</th>
-                        <th>Tanggal Pinjam</th>
-                        <th>Lama Pinjam</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($user as $us)
-                   <tr>
-                        <td>{{ $nomor++ }}</td>
-                        <td>Buku-12312</td>
-                        <td>{{ $us->name }}</td>
-                   </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <div class="container mt-3">
+            <h6>
+                Hi, {{ auth()->user()->name }}
+            </h6>
+            <h1 class="text-bold">Akun anda</h1>
+            <hr>
+            <form action="{{ route('editaccount') }}" method="get">
+                @csrf
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input type="name" name="name" class="form-control" id="name" value="{{ auth()->user()->name }}">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" value="{{ auth()->user()->email }}">
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+            </form>
         </div>
     </main>
 </body>

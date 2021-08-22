@@ -30,6 +30,8 @@ Route::post('/logout',[PageController::class,'logout'])->name('logout');
 
 Route::group(['middleware'=>['auth','ceklevel:admin,karyawan']],function(){
     Route::get('/home',[PageController::class,'index'])->name('home');
+    Route::get('/account',[PageController::class,'account'])->name('account');
+    Route::get('/editaccount',[PageController::class,'editaccount'])->name('editaccount');
     
 });
 Route::group(['middleware'=>['auth','ceklevel:admin']],function(){
