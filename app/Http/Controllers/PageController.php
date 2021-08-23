@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Buku;
 
 class PageController extends Controller
 {
@@ -12,7 +13,8 @@ class PageController extends Controller
     {
         $nomor = 1;
         $user = User::all();
-        return view('home',compact('user','nomor'));
+        $buku = Buku::all();
+        return view('home',compact('user','nomor','buku'));
     }
     public function login()
     {
@@ -51,7 +53,8 @@ class PageController extends Controller
     {
         $nomor = 1;
         $user = User::all();
-        return view('admin.users',compact('user','nomor'));
+
+        return view('admin.users',compact('user','nomor',));
     }
 
     public function account()
@@ -72,6 +75,26 @@ class PageController extends Controller
     {
         $user = User::all();
         return view('admin.userdetail',compact('user'));
+    }
+
+    public function add()
+    {
+        return view('user.add');
+    }
+
+    public function storebuku(Request $request)
+    {
+        // dd(auth()->user()->name);
+        // $user = auth()->user()->id;
+        $new_buku = Buku::create([
+            'judul_buku' => $request->judul_buku,
+            'penulis_buku' => $request->penulis_buku,
+            'penerbit' => $request->penerbit,
+            'tahun_terbit' => $request->tahun_terbit,
+            'jumlah_halaman' => $request->jumlah_halaman,
+            'user_id' => auth()->user()->id,
+        ]);
+        return redirect()->route('home');
     }
 
 }

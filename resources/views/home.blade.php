@@ -27,7 +27,7 @@
 
     <main>
         <div class="container">
-            <a href="{{ route('account') }}" class="akun btn btn-info">{{ auth()->user()->name }} 
+            <a href="{{ route('account') }}" class="akun btn btn-secondary">{{ auth()->user()->name }} 
                 <span><i class="fas fa-user-circle"></i></span>
             </a>
             <h2>Data Buku</h2>
@@ -38,17 +38,23 @@
                         <th>ID Buku</th>
                         <th>Nama Buku</th>
                         <th>Inputer</th>
+                        @if(auth()->user()->level == "karyawan")
                         <th>Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($user as $us)
+                    @foreach($buku as $bk)
                    <tr>
                         <td>{{ $nomor++ }}</td>
-                        <td>{{ $us->buku->id }}</td>
-                        <td>{{ $us->buku->judul_buku }}</td>
-                        <td>{{ $us->name}}</td>
-                        <td></td>
+                        <td>{{ $bk->id }}</td>
+                        <td>{{ $bk->judul_buku }}</td>
+                        <td>{{ $bk->user->name}}</td>
+                        @if(auth()->user()->level == "karyawan")
+                        <td><form action="{{ route('add') }}" method="get">
+                            <button type="submit"class="btn btn-info">Add</button>
+                        </form></td>
+                        @endif
                    </tr>
                     @endforeach
                 </tbody>

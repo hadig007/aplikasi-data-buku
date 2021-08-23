@@ -38,6 +38,10 @@ Route::group(['middleware'=>['auth','ceklevel:admin']],function(){
     Route::get('/home/users',[PageController::class,'users'])->name('users');
     Route::get('/home/users/detail',[PageController::class,'userdetail'])->name('userdetail');
 });
+Route::group(['middleware'=>['auth','ceklevel:karyawan']],function(){
+    Route::get('/add',[PageController::class,'add'])->name('add');
+    Route::get('/storebuku',[PageController::class,'storebuku'])->name('storebuku');
+});
 // Route::get('/add-user', function(){
 //     $user = User::create([
 //         'name' => 'hery',
