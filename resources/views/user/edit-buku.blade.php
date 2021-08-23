@@ -30,29 +30,29 @@
        <h2>
             Tambah data buku disini
         </h2><hr>
-        <form action="{{ route('storebuku') }}" method="get">
+        <form action="/post_editbuku/{{$buku->id}}" method="get">
             @csrf
             <div class="form-group">
                 <label for="judul_buku">Judul Buku</label>
-                <input type="text" name="judul_buku" class="form-control" id="judul_buku" placeholder="masukkan judul buku">
+                <input type="text" name="judul_buku" class="form-control" id="judul_buku" value="{{ $buku->judul_buku }}">
             </div>
             <div class="form-group">
                 <label for="penulis_buku">Penulis Buku</label>
-                <input type="text" name="penulis_buku" class="form-control" id="penulis_buku" placeholder="masukkan nama penerbit">
+                <input type="text" name="penulis_buku" class="form-control" id="penulis_buku" value="{{ $buku->penulis_buku }}">
             </div>
             <div class="form-group">
                 <label for="penerbit">Penerbit</label>
-                <input type="text" name="penerbit" class="form-control" id="penerbit" placeholder="masukkan nama penerbit">
+                <input type="text" name="penerbit" class="form-control" id="penerbit" value="{{ $buku->penerbit }}">
             </div>
             <div class="form-group">
                 <label for="jumlah_halaman">Jumlah Halaman</label>
-                <input type="text" name="jumlah_halaman" class="form-control" id="jumlah_halaman" placeholder="masukkan nama penerbit">
+                <input type="text" name="jumlah_halaman" class="form-control" id="jumlah_halaman" value="{{ $buku->jumlah_halaman }}">
             </div>
             <div class="form-group">
                 <label for="tahun_terbit">Tahun Terbit</label>
-                <input type="date" name="tahun_terbit" class="form-control" id="tahun_terbit" placeholder="masukkan tahun terbit">
+                <input type="date" name="tahun_terbit" class="form-control" id="tahun_terbit" value="{{ $buku->tahun_terbit }}">
             </div>
-            <button type="submit" class="btn btn-primary px-3 ml-5">Simpan</button>
+            <button type="submit" class="btn btn-primary px-3 ml-5">Login</button>
             <a href="/home" class="btn btn-warning">Batal</a>
         </form>
        </div>

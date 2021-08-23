@@ -104,4 +104,20 @@ class PageController extends Controller
         return redirect()->route('home');
     }
 
+    public function editbuku($id)
+    { 
+        $buku = Buku::find($id);
+        return view('user.edit-buku',compact('buku'));
+    }
+    public function post_editbuku(Request $request, $id)
+    {
+        $buku = Buku::find($id);
+        $buku->judul_buku = $request->judul_buku;
+        $buku->penulis_buku = $request->penulis_buku;
+        $buku->penerbit = $request->penerbit;
+        $buku->tahun_terbit = $request->tahun_terbit;
+        $buku->jumlah_halaman = $request->jumlah_halaman;
+        $buku->update();
+        return redirect()->route('home');
+    }
 }

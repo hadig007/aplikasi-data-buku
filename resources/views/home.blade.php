@@ -32,7 +32,9 @@
                 <span><i class="fas fa-user-circle"></i></span>
             </a>
             <h2>Data Buku</h2>
+             @if(auth()->user()->level == "karyawan")
             <a href="{{ route('add') }}" class="btn btn-primary m-2">Tambah Buku</a>
+            @endif
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -54,7 +56,8 @@
                         <td>{{ $bk->user->name}}</td>
                         @if(auth()->user()->level == "karyawan")
                         <td><form action="/hapusbuku/{{$bk->id}}" method="get">@csrf
-                            <button class="btn btn-transparent d-flex flex-row"><span style="font-size: 1.15em; color: red;"><i class="fas fa-trash-alt"></i></span></button>
+                            <button class="btn btn-danger">Delete</button>
+                            <a href="/editbuku/{{$bk->id}}" class="btn btn-info">Edit</a>
                         </form>
                         <!-- <a class="btn btn-transparent d-flex flex-row" href="">edit</a> -->
                         <!-- <a href=""><span style="font-size: 1.15em; color: red;"><i class="fas fa-trash-alt"></i></a> -->
