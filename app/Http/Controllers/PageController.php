@@ -97,4 +97,11 @@ class PageController extends Controller
         return redirect()->route('home');
     }
 
+    public function hapusbuku($id)
+    {
+        $buku = Buku::find($id);
+        $buku->delete();
+        return redirect()->route('home');
+    }
+
 }

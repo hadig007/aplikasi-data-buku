@@ -41,6 +41,7 @@ Route::group(['middleware'=>['auth','ceklevel:admin']],function(){
 Route::group(['middleware'=>['auth','ceklevel:karyawan']],function(){
     Route::get('/add',[PageController::class,'add'])->name('add');
     Route::get('/storebuku',[PageController::class,'storebuku'])->name('storebuku');
+    Route::get('/hapusbuku/{id}',[PageController::class,'hapusbuku'])->name('hapusbuku');
 });
 // Route::get('/add-user', function(){
 //     $user = User::create([

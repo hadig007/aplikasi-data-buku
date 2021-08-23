@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -24,13 +25,14 @@
         </nav>
     </header>
     
-
+    
     <main>
         <div class="container">
             <a href="{{ route('account') }}" class="akun btn btn-secondary">{{ auth()->user()->name }} 
                 <span><i class="fas fa-user-circle"></i></span>
             </a>
             <h2>Data Buku</h2>
+            <a href="{{ route('add') }}" class="btn btn-primary m-2">Tambah Buku</a>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -51,9 +53,12 @@
                         <td>{{ $bk->judul_buku }}</td>
                         <td>{{ $bk->user->name}}</td>
                         @if(auth()->user()->level == "karyawan")
-                        <td><form action="{{ route('add') }}" method="get">
-                            <button type="submit"class="btn btn-info">Add</button>
-                        </form></td>
+                        <td><form action="/hapusbuku/{{$bk->id}}" method="get">@csrf
+                            <button class="btn btn-transparent d-flex flex-row"><span style="font-size: 1.15em; color: red;"><i class="fas fa-trash-alt"></i></span></button>
+                        </form>
+                        <!-- <a class="btn btn-transparent d-flex flex-row" href="">edit</a> -->
+                        <!-- <a href=""><span style="font-size: 1.15em; color: red;"><i class="fas fa-trash-alt"></i></a> -->
+                        </td>
                         @endif
                    </tr>
                     @endforeach
