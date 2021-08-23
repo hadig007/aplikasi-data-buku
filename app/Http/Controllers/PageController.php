@@ -68,4 +68,10 @@ class PageController extends Controller
         $user->update();
         return redirect('/account');
     }
+    public function userdetail()
+    {
+        $user = User::all();
+        return view('admin.userdetail',compact('user'));
+    }
+
 }

@@ -27,32 +27,9 @@
 
     <main>
         <div class="container">
-            <a href="{{ route('account') }}" class="akun btn btn-info">{{ auth()->user()->name }} 
-                <span><i class="fas fa-user-circle"></i></span>
-            </a>
-            <h2>Data Buku</h2>
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>NO</th>
-                        <th>ID Buku</th>
-                        <th>Nama Buku</th>
-                        <th>Inputer</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($user as $us)
-                   <tr>
-                        <td>{{ $nomor++ }}</td>
-                        <td>{{ $us->buku->id }}</td>
-                        <td>{{ $us->buku->judul_buku }}</td>
-                        <td>{{ $us->name}}</td>
-                        <td></td>
-                   </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <h2>
+                Name : 
+            </h2>
         </div>
     </main>
 </body>

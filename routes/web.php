@@ -36,6 +36,7 @@ Route::group(['middleware'=>['auth','ceklevel:admin,karyawan']],function(){
 });
 Route::group(['middleware'=>['auth','ceklevel:admin']],function(){
     Route::get('/home/users',[PageController::class,'users'])->name('users');
+    Route::get('/home/users/detail',[PageController::class,'userdetail'])->name('userdetail');
 });
 // Route::get('/add-user', function(){
 //     $user = User::create([
