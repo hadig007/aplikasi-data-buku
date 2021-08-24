@@ -6,6 +6,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Buku;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -14,7 +15,9 @@ class PageController extends Controller
         $nomor = 1;
         $user = User::all();
         $buku = Buku::all();
-        return view('home',compact('user','nomor','buku'));
+        return view('home',[
+            'user' => DB::table('users')->paginate(15)
+        ],compact('user','nomor','buku'));
     }
     public function login()
     {
@@ -63,17 +66,32 @@ class PageController extends Controller
         return view('account',compact('user'));
     }
 
-    public function editaccount(Request $request)
+    public function editaccount(Request $request,$id)
     {
-        $user = auth()->user();
+        $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->update();
-        return redirect('/account');
+        $user->profile()->update([
+            'alamat' => $request->alamat,
+            'phone' => $request->phone
+            ]
+        ); // dd($user);
+        return redirect('/home');
     }
-    public function userdetail()
+    // public function editaccount(Request $request,$id)
+    // {
+    //     $user = User::find($id);
+    //     $user->name = $request->name;
+    //     $user->email = $request->email;
+    //     $user->profile()->alamat = $request->alamat;
+    //     $user->profile()->phone = $request->phone;
+    //     $user->save();
+    //     // dd($user);
+    //     return redirect('/home');
+    // }
+    public function userdetail($id)
     {
-        $user = User::all();
+        $user = User::findOrFail($id);
         return view('admin.userdetail',compact('user'));
     }
 

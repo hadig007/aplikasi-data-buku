@@ -26,11 +26,39 @@
     
 
     <main>
-        <div class="container">
-            <h2>
-                Name : 
-            </h2>
+       <div class="container mt-4">
+       <h4>
+            Data Lengkap {{ $user->name }}
+        </h4><hr>
+        <div class="boxuser shadow-sm mb-5rounded">
+            <form action="" method="get">
+                <div class="mb-3 row ">
+                    <h4 class="col-sm-4">ID User</h4>
+                    <h4 class="col-sm-8">{{ $user->id }}</h4>
+                </div><hr>
+                <div class="mb-3 row ">
+                    <h4 class="col-sm-4">Nama</h4>
+                    <h4 class="col-sm-8">{{ $user->name }}</h4>
+                </div><hr>
+                <div class="mb-3 row ">
+                    <h4 class="col-sm-4">Level</h4>
+                    <h4 class="col-sm-8">{{ $user->level }}</h4>
+                </div><hr>
+                <div class="mb-3 row ">
+                    <h4 class="col-sm-4">Email</h4>
+                    <h4 class="col-sm-8">{{ $user->email }}</h4>
+                </div><hr>
+                <div class="mb-3 row ">
+                    <h4 class="col-sm-4">Alamat</h4>
+                    <h4 class="col-sm-8">{{ $user->profile->alamat }}</h4>
+                </div><hr>
+                <div class="mb-3 row ">
+                    <h4 class="col-sm-4">No. Kontak</h4>
+                    <h4 class="col-sm-8">{{ $user->profile->phone }}</h4>
+                </div><hr>
+            </form>
         </div>
+       </div>
     </main>
 </body>
 </html>

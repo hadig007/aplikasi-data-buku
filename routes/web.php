@@ -31,12 +31,12 @@ Route::post('/logout',[PageController::class,'logout'])->name('logout');
 Route::group(['middleware'=>['auth','ceklevel:admin,karyawan']],function(){
     Route::get('/home',[PageController::class,'index'])->name('home');
     Route::get('/account',[PageController::class,'account'])->name('account');
-    Route::get('/editaccount',[PageController::class,'editaccount'])->name('editaccount');
+    Route::get('/editaccount/{id}',[PageController::class,'editaccount'])->name('editaccount');
     
 });
 Route::group(['middleware'=>['auth','ceklevel:admin']],function(){
     Route::get('/home/users',[PageController::class,'users'])->name('users');
-    Route::get('/home/users/detail',[PageController::class,'userdetail'])->name('userdetail');
+    Route::get('/home/users/detail/{id}',[PageController::class,'userdetail'])->name('userdetail');
 });
 Route::group(['middleware'=>['auth','ceklevel:karyawan']],function(){
     Route::get('/add',[PageController::class,'add'])->name('add');

@@ -49,7 +49,7 @@
                         <td>{{ $us->email }}</td>
                         <td>{{ $us->level }}</td>
                         <td>
-                            <form action="{{ route('userdetail') }}" method="get">
+                            <form action="{{ route('userdetail',['id' => $us->id]) }}" method="get">
                                 <button type="submit" class="btn btn-info">Detail</button>
                             </form>
                         </td>

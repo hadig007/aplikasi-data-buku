@@ -32,18 +32,34 @@
             </h6>
             <h1 class="text-bold">Akun anda</h1>
             <hr>
-            <form action="{{ route('editaccount') }}" method="get">
+            <form action="{{ route('editaccount',['id'=>auth()->id()]) }}" method="get">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Nama</label>
-                    <input type="name" name="name" class="form-control" id="name" value="{{ auth()->user()->name }}">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" value="{{ auth()->user()->email }}">
-                </div>
-                <hr>
-                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                <label for="id">ID anda</label>
+                <input type="text" name="id" class="form-control" Disabled id="id" value="{{ auth()->id() }}">
+            </div>
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" name="name" class="form-control" id="name" value="{{ auth()->user()->name }}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" class="form-control" id="email" value="{{ auth()->user()->email }}">
+            </div>
+            <div class="form-group">
+                <label for="level">Level</label>
+                <input type="text" name="level" class="form-control" Disabled id="level" value="{{ auth()->user()->level }}">
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" name="alamat" class="form-control" id="alamat" value="{{ auth()->user()->profile->alamat }}">
+            </div>
+            <div class="form-group">
+                <label for="phone">No. Kontak</label>
+                <input type="number" name="phone" class="form-control" id="phone" value="{{ auth()->user()->profile->phone }}">
+            </div>
+            <button type="submit" class="btn btn-primary px-3 ml-5">Simpan Perubahan</button>
+            <a href="/home" class="btn btn-warning">Batal</a>
             </form>
         </div>
     </main>

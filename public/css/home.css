@@ -40,3 +40,9 @@ nav a:hover{
     padding: 5px 30px;
     text-decoration: none;
 }
+
+.boxuser{
+    background-color: rgba(255, 232, 232, 0.575);
+    padding: 1.3rem 10rem;
+    border-radius: 0.5rem;
+}

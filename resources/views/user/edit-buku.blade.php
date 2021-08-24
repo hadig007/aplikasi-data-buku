@@ -52,7 +52,7 @@
                 <label for="tahun_terbit">Tahun Terbit</label>
                 <input type="date" name="tahun_terbit" class="form-control" id="tahun_terbit" value="{{ $buku->tahun_terbit }}">
             </div>
-            <button type="submit" class="btn btn-primary px-3 ml-5">Login</button>
+            <button type="submit" class="btn btn-primary px-3 ml-5">Simpan</button>
             <a href="/home" class="btn btn-warning">Batal</a>
         </form>
        </div>
